@@ -159,15 +159,25 @@ let successTimeout = null;
 
 function showCouponSuccess() {
 
+    // Asegurar que el mensaje esté directamente
+    // dentro del body para que position: fixed
+    // funcione correctamente en celular.
+
+    if (couponSuccess.parentElement !== document.body) {
+
+        document.body.appendChild(
+            couponSuccess
+        );
+
+    }
+
     couponSuccess.classList.add(
         "active"
     );
 
-
     clearTimeout(
         successTimeout
     );
-
 
     successTimeout =
         setTimeout(() => {
@@ -177,7 +187,6 @@ function showCouponSuccess() {
             );
 
         }, 5000);
-
 }
 
 closeSuccess.addEventListener(
