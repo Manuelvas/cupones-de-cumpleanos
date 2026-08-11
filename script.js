@@ -397,6 +397,67 @@ function useCoupon(couponId) {
 
     }, 350);
 
+    // =====================================
+// AVISAR POR WHATSAPP
+// =====================================
+
+enviarAvisoWhatsApp(couponId);
+
+}
+
+// =====================================
+// ENVIAR AVISO DE CUPÓN A WHATSAPP
+// =====================================
+
+async function enviarAvisoWhatsApp(couponId) {
+
+    try {
+
+        const respuesta = await fetch(
+            "/api/enviar-whatsapp",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    nombreCupon: `Cupón ${String(couponId).padStart(2, "0")}`
+                })
+            }
+        );
+
+
+        const resultado =
+            await respuesta.json();
+
+
+        if (!respuesta.ok) {
+
+            console.error(
+                "No se pudo enviar el aviso de WhatsApp:",
+                resultado
+            );
+
+            return;
+        }
+
+
+        console.log(
+            "Aviso de WhatsApp enviado correctamente ❤️"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Error al enviar aviso de WhatsApp:",
+            error
+        );
+
+    }
+
 }
 
 
