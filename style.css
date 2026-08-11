@@ -2288,3 +2288,33 @@ body {
     }
 
 }
+
+/* =========================================
+   MODO CUPONES SECRETOS
+========================================= */
+
+.coupons-content.secret-mode {
+    display: none;
+}
+
+
+/* =========================================
+   CUPONES SECRETOS A PANTALLA COMPLETA
+========================================= */
+
+.secret-coupons-section.unlocked {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    animation: secretSectionAppear 1s ease;
+}
+
+
+/* Contenedor de los 4 secretos */
+
+.secret-coupons-section
+.coupons-grid {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}

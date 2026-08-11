@@ -106,6 +106,8 @@ const closeFinalCoupon =
         "closeFinalCoupon"
     );
 
+    const couponsContent =
+    document.querySelector(".coupons-content");
 
 
 
@@ -1791,19 +1793,22 @@ discoverSecretCoupons.addEventListener(
     "click",
     () => {
 
+        // Cerrar la ventana de revelación
         secretUnlockModal.classList.remove(
             "active"
         );
 
+        // Ocultar la sección de los 21 cupones
+        couponsScreen.classList.add(
+            "secret-mode"
+        );
 
+        // Esperar a que termine la animación
         setTimeout(() => {
 
             secretCouponsSection.scrollIntoView({
-
                 behavior: "smooth",
-
                 block: "start"
-
             });
 
         }, 400);
