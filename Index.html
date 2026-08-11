@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para mi amor ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main id="app">
+
+        <!-- ============================= -->
+        <!-- PANTALLA 1 - BIENVENIDA -->
+        <!-- ============================= -->
+
+        <section class="screen active" id="welcomeScreen">
+
+            <div class="stars"></div>
+
+            <div class="welcome-content">
+
+                <div class="heart-decoration">
+                    ❤️
+                </div>
+
+                <h1>
+                    Hola mi amor,<br>
+                    bienvenida 🤗❤️
+                </h1>
+
+                <p class="welcome-message">
+                    Tengo algo preparado especialmente para ti...
+                </p>
+
+                <button class="main-button" id="startButton">
+                    Seguir
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- PANTALLA 2 - CUMPLEAÑOS -->
+        <!-- ============================= -->
+
+        <section class="screen" id="birthdayScreen">
+
+            <div id="confetti-container"></div>
+
+            <div class="sparkles"></div>
+
+            <div class="birthday-content">
+
+                <p class="small-title">
+                    Hoy es un día muy especial...
+                </p>
+
+                <h1>
+                    Feliz cumpleaños<br>
+                    mi bb 🎂❤️
+                </h1>
+
+                <div class="photo-container">
+
+                    <div class="photo-glow"></div>
+
+                    <img
+                        src="img/ella.jpeg"
+                        alt="Mi amor"
+                        class="birthday-photo"
+                    >
+
+                </div>
+
+                <p class="birthday-message">
+                    Hoy celebramos tus 21 vueltas al sol
+                    y todo lo bonito que eres. ✨
+                </p>
+
+                <button class="main-button" id="birthdayNextButton">
+                    Seguir
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ============================= -->
+<!-- PANTALLA 3 - LA SORPRESA -->
+<!-- ============================= -->
+
+<section class="screen" id="surpriseScreen">
+
+    <div class="surprise-content">
+
+        <div class="gift-icon">
+            🎁
+        </div>
+
+        <p class="surprise-small-title">
+            Hay algo preparado para ti...
+        </p>
+
+        <h1>
+            Te he preparado<br>
+            una sorpresa
+        </h1>
+
+        <p class="surprise-message">
+            Por tu vuelta al sol, quería regalarte
+            algo diferente, algo que pudieras
+            disfrutar poquito a poquito. ❤️
+        </p>
+
+        <button class="main-button" id="discoverButton">
+            Descubrir sorpresa
+            <span>✨</span>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ============================= -->
+<!-- PANTALLA 4 - CUPONES -->
+<!-- ============================= -->
+
+<section class="screen" id="couponsScreen">
+
+    <div class="coupons-content">
+
+        <!-- ENCABEZADO -->
+
+        <div class="coupons-header">
+
+            <div class="ticket-icon">
+                🎟️
+            </div>
+
+            <p class="coupons-small-title">
+                Un regalo hecho especialmente para ti
+            </p>
+
+            <h1>
+                Tus 21 cupones ❤️
+            </h1>
+
+           <p class="coupons-description">
+
+                Puedes disfrutar de hasta
+                <strong>3 cupones cada 24 horas</strong>.
+
+                <br>
+
+                Los demás estarán esperando
+                su momento para ti. ✨
+
+            </p>
+
+            <div class="coupon-counter">
+
+                <span id="availableCount">21</span>
+                disponibles
+
+                <span class="counter-separator">•</span>
+
+                <span id="usedCount">0</span>
+                usados
+
+            </div>
+
+            <div
+                id="couponTimer"
+                class="coupon-timer"
+            >
+                ✨ Tienes cupones disponibles
+            </div>
+
+        </div>
+
+
+        <!-- CUPONES DISPONIBLES -->
+
+        <div class="coupon-section">
+
+            <h2>
+                ✨ Disponibles
+            </h2>
+
+            <div
+                class="coupons-grid"
+                id="availableCoupons">
+            </div>
+
+        </div>
+
+
+        <!-- CUPONES USADOS -->
+
+        <div
+            class="coupon-section used-section"
+            id="usedSection">
+
+            <h2>
+                💌 Ya disfrutados
+            </h2>
+
+            <div
+                class="coupons-grid used-grid"
+                id="usedCoupons">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =========================================
+     CUPONES SECRETOS
+========================================= -->
+
+<section
+    id="secretCouponsSection"
+    class="secret-coupons-section"
+>
+
+    <div class="secret-title">
+
+        <span>✨</span>
+
+        <h2>
+            Tus 4 sorpresas secretas
+        </h2>
+
+        <span>✨</span>
+
+    </div>
+
+    <p class="secret-subtitle">
+        Porque 21 cupones no eran suficientes para ti. ❤️
+    </p>
+
+    <div
+    id="secretCouponCounter"
+    class="secret-coupon-counter"
+>
+    4 disponibles • 0 usados
+</div>
+
+    <div
+        id="secretCoupons"
+        class="coupons-grid"
+    ></div>
+
+</section>
+
+    <!-- =========================================
+     MENSAJE DE CUPÓN UTILIZADO
+========================================= -->
+
+<div
+    id="couponSuccess"
+    class="coupon-success"
+>
+
+    <div class="success-icon">
+        💖
+    </div>
+
+    <div class="success-content">
+
+        <strong>
+            ¡Cupón utilizado!
+        </strong>
+
+        <span>
+            Espero que disfrutes mucho
+            este momento conmigo. ❤️
+        </span>
+
+    </div>
+
+    <button
+        id="closeSuccess"
+        class="success-close"
+    >
+        ×
+    </button>
+
+</div>
+
+</section>
+
+<!-- =========================================
+     MODAL DE CUPÓN
+========================================= -->
+
+<div id="couponModal" class="coupon-modal">
+
+    <div class="coupon-modal-overlay"></div>
+
+    <div class="coupon-modal-box">
+
+        <button
+            id="closeCouponModal"
+            class="coupon-modal-close"
+        >
+            ×
+        </button>
+
+        <div class="coupon-modal-heart">
+            💖
+        </div>
+
+        <p class="coupon-modal-small">
+            Un pequeño regalo para ti
+        </p>
+
+        <h2 id="modalCouponTitle">
+            Noche de películas
+        </h2>
+
+        <div
+            id="modalCouponEmoji"
+            class="coupon-modal-emoji"
+        >
+            🍿
+        </div>
+
+        <p
+            id="modalCouponDescription"
+            class="coupon-modal-description"
+        >
+            Tú eliges la película y yo pongo los abrazos.
+        </p>
+
+        <p
+            id="modalCouponQuestion"
+            class="coupon-modal-question"
+        >
+            ¿Quieres utilizar este cupón?
+        </p>
+
+        <div class="coupon-modal-buttons">
+
+            <button
+                id="cancelCoupon"
+                class="modal-button modal-cancel"
+            >
+                Todavía no
+            </button>
+
+            <button
+                id="confirmCoupon"
+                class="modal-button modal-confirm"
+            >
+                Sí, usarlo ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     MODAL LÍMITE DE CUPONES
+========================================= -->
+
+<div id="limitModal" class="coupon-modal">
+
+    <div class="coupon-modal-overlay"></div>
+
+    <div class="coupon-modal-box limit-box">
+
+        <button
+            id="closeLimitModal"
+            class="coupon-modal-close"
+        >
+            ×
+        </button>
+
+        <div class="coupon-modal-heart">
+            ✨
+        </div>
+
+        <p class="coupon-modal-small">
+            Por ahora...
+        </p>
+
+        <h2>
+            Ya disfrutaste tus 3 cupones ❤️
+        </h2>
+
+        <p class="coupon-modal-description">
+            Has utilizado tus tres cupones
+            disponibles por ahora.
+        </p>
+
+        <p class="coupon-modal-question">
+            Pero tranquila...
+            <br>
+            todavía quedan muchos esperando por ti. 🥰
+        </p>
+
+        <button
+            id="closeLimitButton"
+            class="modal-button modal-confirm"
+        >
+            Está bien 💕
+        </button>
+
+    </div>
+
+    
+
+</div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <!-- =========================================
+     MODO DE PRUEBAS
+========================================= -->
+
+<div id="devPanel" class="dev-panel">
+
+    <div class="dev-panel-title">
+        🛠️ Modo de pruebas
+    </div>
+
+    <button id="resetTimerButton">
+        🔄 Reiniciar límite 24 h
+    </button>
+
+    <button id="resetCouponsButton">
+        🎟️ Reiniciar cupones
+    </button>
+
+    <button id="resetAllButton">
+        🧹 Reiniciar todo
+    </button>
+
+</div>
+
+
+
+<!-- =========================================
+     REVELACIÓN DE CUPONES SECRETOS
+========================================= -->
+
+<div
+    id="secretUnlockModal"
+    class="coupon-modal secret-unlock-modal"
+>
+
+    <div class="coupon-modal-overlay"></div>
+
+    <div class="coupon-modal-box secret-unlock-box">
+
+        <div class="secret-stars">
+            ✨ ✨ ✨
+        </div>
+
+        <div class="coupon-modal-heart">
+            🎁
+        </div>
+
+        <p class="coupon-modal-small">
+            Espera un momento...
+        </p>
+
+        <h2>
+            ¿De verdad pensabas
+            que esto terminaba aquí? 👀
+        </h2>
+
+        <p class="coupon-modal-description">
+
+            Has llegado al final de tus
+            21 cupones...
+
+            <br><br>
+
+            pero tengo una pequeña sorpresa
+            más para ti. ❤️
+
+        </p>
+
+        <div class="secret-reveal-number">
+            +4
+        </div>
+
+        <p class="coupon-modal-question">
+
+            <strong>
+                ¡Has desbloqueado 4 cupones secretos!
+            </strong>
+
+        </p>
+
+        <button
+            id="discoverSecretCoupons"
+            class="modal-button modal-confirm"
+        >
+            Descubrir mis sorpresas ✨
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+     MENSAJE FINAL
+========================================= -->
+
+<div
+    id="finalCouponModal"
+    class="coupon-modal final-coupon-modal"
+>
+
+    <div class="coupon-modal-overlay"></div>
+
+    <div class="coupon-modal-box final-coupon-box">
+
+        <div class="final-hearts">
+            ❤️ ✨ ❤️
+        </div>
+
+        <div class="final-icon">
+            🎁
+        </div>
+
+        <p class="coupon-modal-small">
+            Y así llegamos al final...
+        </p>
+
+        <h2>
+            Tus cupones han finalizado 💖
+        </h2>
+
+        <p class="coupon-modal-description">
+
+            Espero de todo corazón que te hayan gustado,
+            que hayas disfrutado cada uno de ellos
+            y que hayan hecho tu cumpleaños
+            un poquito más especial. 🥰
+
+            <br><br>
+
+            Gracias por ser tú y por compartir
+            tantos momentos conmigo.
+
+            <br><br>
+
+            <strong>
+                Te amo muchísimo, mi bb. ❤️
+            </strong>
+
+        </p>
+
+        <button
+            id="closeFinalCoupon"
+            class="modal-button modal-confirm"
+        >
+            ❤️ Cerrar
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
