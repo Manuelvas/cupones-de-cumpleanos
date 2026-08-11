@@ -1023,6 +1023,12 @@ let secretCouponsUnlocked =
         "secretCouponsUnlocked"
     ) === "true";
 
+    // Si los cupones secretos ya fueron desbloqueados,
+// mantener el modo SOLO CUPONES SECRETOS al recargar.
+if (secretCouponsUnlocked) {
+    couponsScreen.classList.add("secret-only");
+}
+
 
     /* =========================================
        REGISTRO DE USOS
