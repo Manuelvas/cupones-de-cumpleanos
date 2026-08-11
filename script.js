@@ -786,9 +786,9 @@ resetAllButton.addEventListener(
         {
             id: 1,
             emoji: "🍿",
-            title: "Noche de películas",
+            title: "Tarde de películas",
             description:
-                "Tú eliges la película y yo pongo los abrazos."
+                "Tú eliges la película y yo pongo lo demas."
         },
 
         {
@@ -810,9 +810,9 @@ resetAllButton.addEventListener(
         {
             id: 4,
             emoji: "🌹",
-            title: "Una cita sorpresa",
+            title: "Una cita",
             description:
-                "Yo preparo todo. Tú solo tienes que disfrutar."
+                "Yo te invito tu tienes que disfrutar."
         },
 
         {
@@ -850,7 +850,7 @@ resetAllButton.addEventListener(
         {
             id: 9,
             emoji: "🍫",
-            title: "Chocolate para ti",
+            title: "Chocolates para ti",
             description:
                 "Porque nunca está de más consentirte un poquito."
         },
@@ -873,18 +873,18 @@ resetAllButton.addEventListener(
 
         {
             id: 12,
-            emoji: "💌",
-            title: "Una carta para ti",
+            emoji: "😗",
+            title: "Dia de skincare",
             description:
-                "Una carta escrita especialmente para ti."
+                "Un dia para limpiarnos la carita."
         },
 
         {
             id: 13,
-            emoji: "🎵",
-            title: "Tú eliges el plan",
+            emoji: "😅",
+            title: "Hago lo que me pidas",
             description:
-                "Esta vez tú decides qué hacemos juntos."
+                "Esta vez tú decides."
         },
 
         {
@@ -897,58 +897,58 @@ resetAllButton.addEventListener(
 
         {
             id: 15,
-            emoji: "🧸",
-            title: "Día de mimos",
+            emoji: "👗",
+            title: "Una prenda de ropa",
             description:
-                "Mimos, abrazos y mucho cariño."
+                "Te ragalo lo que tu quieras comprar"
         },
 
         {
             id: 16,
-            emoji: "🌸",
+            emoji: "🤭",
             title: "Un detalle sorpresa",
             description:
-                "Un pequeño detalle elegido pensando en ti."
+                "Un pequeño detalle para ti."
         },
 
         {
             id: 17,
-            emoji: "🚗",
+            emoji: "💕",
             title: "Paseo juntos",
             description:
-                "Sube, que hoy nos vamos a crear recuerdos."
+                "Es dia para que la pasemos juntos."
         },
 
         {
             id: 18,
-            emoji: "❤️",
-            title: "Día solo para nosotros",
+            emoji: "🙈❤️",
+            title: "Día del amor",
             description:
-                "Un día para desconectarnos de todo."
+                "Un día para darte mucho amor ya sabes como..."
         },
 
         {
             id: 19,
-            emoji: "🥰",
-            title: "Consentida por mí",
+            emoji: "👜",
+            title: "Dia de ser tu cartera",
             description:
-                "Hoy tienes permiso de dejarte consentir."
+                "Lo que compres lo pago"
         },
 
         {
             id: 20,
-            emoji: "🎁",
-            title: "Regalo sorpresa",
+            emoji: "😚",
+            title: "Pide lo que quieras",
             description:
-                "Hay algo que preparé especialmente para ti."
+                "Hoy te dire si a una cosa que pidas."
         },
 
         {
             id: 21,
-            emoji: "💖",
-            title: "Un cupón muy especial",
+            emoji: "🙈",
+            title: "Foto prohibida",
             description:
-                "Este lo dejamos para el final... ❤️"
+                "De las que te gustan... "
         }
 
     ];
@@ -962,9 +962,9 @@ const secretCoupons = [
     {
         id: 22,
         emoji: "🎁",
-        title: "Sorpresa secreta",
+        title: "Te regalo lo que tu quieras",
         description:
-            "Una sorpresa que preparé especialmente para ti."
+            "Por que te gusta que te consienta."
     },
 
     {
@@ -980,15 +980,15 @@ const secretCoupons = [
         emoji: "🌹",
         title: "Una sorpresa más",
         description:
-            "Porque todavía tenía algo guardado para ti."
+            "Porque todavía tenía algo guardado para ti (descubres al canjear)."
     },
 
     {
         id: 25,
-        emoji: "💖",
-        title: "El último secreto",
+        emoji: "😊❤️",
+        title: "El último regalo",
         description:
-            "Este cupón es especialmente importante. ❤️"
+            "Te llevo donde tu quieras ir🤭"
     }
 
 ];
