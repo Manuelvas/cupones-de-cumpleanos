@@ -401,6 +401,8 @@ function useCoupon(couponId) {
 // AVISAR POR WHATSAPP
 // =====================================
 
+console.log("🚀 Intentando enviar aviso de WhatsApp:", couponId);
+
 enviarAvisoWhatsApp(couponId);
 
 }
