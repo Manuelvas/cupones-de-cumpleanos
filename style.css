@@ -2372,3 +2372,11 @@ body {
         transform: translateY(0);
     }
 }
+
+/* =========================================
+   OCULTAR MODO DE PRUEBAS - VERSIÓN FINAL
+========================================= */
+
+#devPanel {
+    display: none !important;
+}
