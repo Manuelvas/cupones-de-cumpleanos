@@ -2318,3 +2318,57 @@ body {
     max-width: 1000px;
     margin: 0 auto;
 }
+
+/* =========================================
+   MOSTRAR SOLO LOS 4 CUPONES SECRETOS
+========================================= */
+
+#couponsScreen.secret-only .coupons-content {
+    display: none !important;
+}
+
+#couponsScreen.secret-only #secretCouponsSection {
+    display: block !important;
+    width: 100%;
+    margin-top: 0;
+    animation: secretSectionAppear 0.8s ease;
+}
+
+@keyframes secretSectionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   MODO SOLO CUPONES SECRETOS
+========================================= */
+
+#couponsScreen.secret-only .coupons-content {
+    display: none !important;
+}
+
+#couponsScreen.secret-only #secretCouponsSection {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    animation: secretReveal 0.8s ease;
+}
+
+@keyframes secretReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

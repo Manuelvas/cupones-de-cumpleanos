@@ -1793,17 +1793,16 @@ discoverSecretCoupons.addEventListener(
     "click",
     () => {
 
-        // Cerrar la ventana de revelación
-        secretUnlockModal.classList.remove(
-            "active"
-        );
+        // Cerrar ventana de desbloqueo
+        secretUnlockModal.classList.remove("active");
 
-        // Ocultar la sección de los 21 cupones
-        couponsScreen.classList.add(
-            "secret-mode"
-        );
+        // Activar modo SOLO CUPONES SECRETOS
+        const couponsScreen =
+            document.getElementById("couponsScreen");
 
-        // Esperar a que termine la animación
+        couponsScreen.classList.add("secret-only");
+
+        // Ir directamente a los 4 secretos
         setTimeout(() => {
 
             secretCouponsSection.scrollIntoView({
