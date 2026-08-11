@@ -1752,6 +1752,14 @@ const shouldShowFinalMessage =
 
     }, 350);
 
+    // =====================================
+// ENVIAR AVISO POR WHATSAPP
+// =====================================
+
+console.log("🚀 Intentando enviar aviso de WhatsApp:", couponId);
+
+enviarAvisoWhatsApp(couponId);
+
     if (shouldShowFinalMessage) {
 
     setTimeout(() => {
