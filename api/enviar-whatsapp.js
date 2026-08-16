@@ -29,7 +29,7 @@ export default async function handler(req, res) {
             });
         }
 
-        console.log("📱 Enviando plantilla cupon_utilizado...");
+        console.log("📱 Intentando enviar plantilla de WhatsApp");
         console.log("🎟️ Cupón:", nombreCupon);
 
         const respuesta = await fetch(
@@ -79,7 +79,7 @@ export default async function handler(req, res) {
         if (!respuesta.ok) {
 
             console.error(
-                "❌ WhatsApp rechazó el mensaje:",
+                "❌ WhatsApp rechazó la plantilla:",
                 resultado
             );
 
