@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
 
-    // Solo permitimos solicitudes POST
     if (req.method !== "POST") {
         return res.status(405).json({
             error: "Método no permitido"
@@ -9,18 +8,14 @@ export default async function handler(req, res) {
 
     try {
 
-        const {
-            nombreCupon
-        } = req.body;
+        const { nombreCupon } = req.body;
 
-        // Verificar que recibimos el nombre
         if (!nombreCupon) {
             return res.status(400).json({
                 error: "Falta el nombre del cupón"
             });
         }
 
-        // Variables privadas guardadas en Vercel
         const token = process.env.WHATSAPP_TOKEN;
         const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
         const numeroDestino = process.env.WHATSAPP_DESTINATION;
@@ -30,12 +25,6 @@ export default async function handler(req, res) {
                 error: "Faltan variables de WhatsApp en Vercel"
             });
         }
-
-        /*
-        =========================================
-        ENVIAR PLANTILLA DE WHATSAPP
-        =========================================
-        */
 
         const respuesta = await fetch(
             `https://graph.facebook.com/v25.0/${phoneNumberId}/messages`,
@@ -49,9 +38,7 @@ export default async function handler(req, res) {
 
                 body: JSON.stringify({
                     messaging_product: "whatsapp",
-
                     to: numeroDestino,
-
                     type: "template",
 
                     template: {
@@ -59,20 +46,7 @@ export default async function handler(req, res) {
 
                         language: {
                             code: "es"
-                        },
-
-                        components: [
-                            {
-                                type: "body",
-
-                                parameters: [
-                                    {
-                                        type: "text",
-                                        text: nombreCupon
-                                    }
-                                ]
-                            }
-                        ]
+                        }
                     }
                 })
             }
@@ -80,19 +54,12 @@ export default async function handler(req, res) {
 
         const resultado = await respuesta.json();
 
-        /*
-        =========================================
-        RESPUESTA DE META
-        =========================================
-        */
+        console.log(
+            "Respuesta de Meta:",
+            JSON.stringify(resultado, null, 2)
+        );
 
         if (!respuesta.ok) {
-
-            console.error(
-                "Error de WhatsApp:",
-                resultado
-            );
-
             return res.status(500).json({
                 error: "WhatsApp rechazó la plantilla",
                 detalle: resultado
@@ -113,7 +80,8 @@ export default async function handler(req, res) {
         );
 
         return res.status(500).json({
-            error: "Error interno del servidor"
+            error: "Error interno del servidor",
+            detalle: error.message
         });
     }
 }
