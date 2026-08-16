@@ -31,10 +31,11 @@ export default async function handler(req, res) {
             });
         }
 
-        const mensaje =
-            `💝 Se utilizó un cupón\n\n` +
-            `🎟️ Cupón: ${nombreCupon}\n\n` +
-            `❤️ Tu regalo está siendo disfrutado.`;
+        /*
+        =========================================
+        ENVIAR PLANTILLA DE WHATSAPP
+        =========================================
+        */
 
         const respuesta = await fetch(
             `https://graph.facebook.com/v25.0/${phoneNumberId}/messages`,
@@ -48,10 +49,30 @@ export default async function handler(req, res) {
 
                 body: JSON.stringify({
                     messaging_product: "whatsapp",
+
                     to: numeroDestino,
-                    type: "text",
-                    text: {
-                        body: mensaje
+
+                    type: "template",
+
+                    template: {
+                        name: "cupon_utilizado",
+
+                        language: {
+                            code: "es"
+                        },
+
+                        components: [
+                            {
+                                type: "body",
+
+                                parameters: [
+                                    {
+                                        type: "text",
+                                        text: nombreCupon
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 })
             }
@@ -59,24 +80,37 @@ export default async function handler(req, res) {
 
         const resultado = await respuesta.json();
 
+        /*
+        =========================================
+        RESPUESTA DE META
+        =========================================
+        */
+
         if (!respuesta.ok) {
-            console.error("Error de WhatsApp:", resultado);
+
+            console.error(
+                "Error de WhatsApp:",
+                resultado
+            );
 
             return res.status(500).json({
-                error: "WhatsApp rechazó el mensaje",
+                error: "WhatsApp rechazó la plantilla",
                 detalle: resultado
             });
         }
 
-       return res.status(200).json({
-    success: true,
-    metaStatus: respuesta.status,
-    metaResponse: resultado
-});
+        return res.status(200).json({
+            success: true,
+            metaStatus: respuesta.status,
+            metaResponse: resultado
+        });
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Error interno:",
+            error
+        );
 
         return res.status(500).json({
             error: "Error interno del servidor"
