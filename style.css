@@ -2373,3 +2373,10 @@ body {
     }
 }
 
+/* =========================================
+   OCULTAR MODO DE PRUEBAS - VERSIÓN FINAL
+========================================= */
+
+#devPanel {
+    display: none !important;
+}
