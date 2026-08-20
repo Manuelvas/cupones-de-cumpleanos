@@ -215,25 +215,27 @@ function showCouponSuccess(coupon) {
 
 whatsappCouponButton.addEventListener(
     "click",
-    (event) => {
+    () => {
 
-        event.preventDefault();
-
-        if (!currentUsedCoupon) {
-            return;
-        }
+        const coupon = currentUsedCoupon;
 
         const numeroWhatsApp =
             "50375644467";
 
+        const nombre =
+            coupon?.title || "un cupón";
+
+        const emoji =
+            coupon?.emoji || "❤️";
+
         const mensaje =
-            `Hola 🤭 utilicé el cupón "${currentUsedCoupon.title}" ${currentUsedCoupon.emoji} ❤️`;
+            `Hola 🤭 utilicé el cupón "${nombre}" ${emoji} ❤️`;
 
         const url =
-            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
 
-        // Abrir directamente WhatsApp / WhatsApp Web
-        window.location.href = url;
+        // Navegación directa: en celular abre WhatsApp; en PC abre WhatsApp Web.
+        window.location.assign(url);
     }
 );
 
