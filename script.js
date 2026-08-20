@@ -215,7 +215,9 @@ function showCouponSuccess(coupon) {
 
 whatsappCouponButton.addEventListener(
     "click",
-    () => {
+    (event) => {
+
+        event.preventDefault();
 
         if (!currentUsedCoupon) {
             return;
@@ -227,9 +229,11 @@ whatsappCouponButton.addEventListener(
         const mensaje =
             `Hola 🤭 utilicé el cupón "${currentUsedCoupon.title}" ${currentUsedCoupon.emoji} ❤️`;
 
-        whatsappCouponButton.href =
+        const url =
             `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
+        // Abrir directamente WhatsApp / WhatsApp Web
+        window.location.href = url;
     }
 );
 
