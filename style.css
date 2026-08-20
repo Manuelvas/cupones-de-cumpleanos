@@ -2380,3 +2380,39 @@ body {
 #devPanel {
     display: none !important;
 }
+
+
+/* =========================================
+   BOTÓN AVISAR POR WHATSAPP
+========================================= */
+
+.whatsapp-coupon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-coupon-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.32);
+}
+
+.whatsapp-coupon-button:active {
+    transform: scale(0.98);
+}
+
+.whatsapp-button-icon {
+    font-size: 17px;
+    line-height: 1;
+}

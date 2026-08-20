@@ -71,6 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "closeSuccess"
         );
 
+    const whatsappCouponButton =
+        document.getElementById(
+            "whatsappCouponButton"
+        );
+
+    let currentUsedCoupon = null;
+
         const secretUnlockModal =
     document.getElementById(
         "secretUnlockModal"
@@ -159,7 +166,7 @@ const closeFinalCoupon =
 let successTimeout = null;
 
 
-function showCouponSuccess() {
+function showCouponSuccess(coupon) {
 
     // Asegurar que el mensaje esté directamente
     // dentro del body para que position: fixed
@@ -170,6 +177,21 @@ function showCouponSuccess() {
         document.body.appendChild(
             couponSuccess
         );
+
+    }
+
+    if (coupon && whatsappCouponButton) {
+
+        currentUsedCoupon = coupon;
+
+        const numeroWhatsApp =
+            "50375644467"; // Reemplaza por tu número si es necesario
+
+        const mensaje =
+            `Hola 🤭 utilicé el cupón "${coupon.title}" ${coupon.emoji} ❤️`;
+
+        whatsappCouponButton.href =
+            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
     }
 
@@ -190,6 +212,26 @@ function showCouponSuccess() {
 
         }, 5000);
 }
+
+whatsappCouponButton.addEventListener(
+    "click",
+    () => {
+
+        if (!currentUsedCoupon) {
+            return;
+        }
+
+        const numeroWhatsApp =
+            "50375644467";
+
+        const mensaje =
+            `Hola 🤭 utilicé el cupón "${currentUsedCoupon.title}" ${currentUsedCoupon.emoji} ❤️`;
+
+        whatsappCouponButton.href =
+            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    }
+);
 
 closeSuccess.addEventListener(
     "click",
@@ -342,6 +384,10 @@ function useCoupon(couponId) {
 
     renderCoupons();
 
+    // Obtener el cupón real para usar su título y emoji
+    const coupon =
+        coupons.find(item => item.id === couponId);
+
 
     // =====================================
     // BUSCAR CUPÓN UTILIZADO
@@ -404,75 +450,11 @@ function useCoupon(couponId) {
 
     setTimeout(() => {
 
-        showCouponSuccess();
+        showCouponSuccess(coupon);
 
     }, 350);
 
-    // =====================================
-// AVISAR POR WHATSAPP
-// =====================================
-
-console.log("🚀 Intentando enviar aviso de WhatsApp:", couponId);
-
-enviarAvisoWhatsApp(couponId);
-
 }
-
-// =====================================
-// ENVIAR AVISO DE CUPÓN A WHATSAPP
-// =====================================
-
-async function enviarAvisoWhatsApp(couponId) {
-
-    try {
-
-        const respuesta = await fetch(
-            "/api/enviar-whatsapp",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    nombreCupon: `Cupón ${String(couponId).padStart(2, "0")}`
-                })
-            }
-        );
-
-
-        const resultado =
-            await respuesta.json();
-
-
-        if (!respuesta.ok) {
-
-            console.error(
-                "No se pudo enviar el aviso de WhatsApp:",
-                resultado
-            );
-
-            return;
-        }
-
-
-        console.log(
-            "Aviso de WhatsApp enviado correctamente ❤️"
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Error al enviar aviso de WhatsApp:",
-            error
-        );
-
-    }
-
-}
-
 
 /* =========================================
    MODO DE PRUEBAS
