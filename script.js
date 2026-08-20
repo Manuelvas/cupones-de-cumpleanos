@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const discoverButton =
         document.getElementById("discoverButton");
 
+    const couponsDirectButton =
+        document.getElementById("couponsDirectButton");
+
         const couponTimer =
     document.getElementById("couponTimer");
 
@@ -187,11 +190,17 @@ function showCouponSuccess(coupon) {
         const numeroWhatsApp =
             "50375644467"; // Reemplaza por tu número si es necesario
 
+        const numeroCupon =
+            String(coupon.id).padStart(2, "0");
+
+        const nombreCupon =
+            coupon.title || `Cupón ${numeroCupon}`;
+
         const mensaje =
-            `Hola 🤭 utilicé el cupón "${coupon.title}" ${coupon.emoji} ❤️`;
+            `Hola 🤭 utilicé el CUPÓN ${numeroCupon}: "${nombreCupon}" ${coupon.emoji || "❤️"} ❤️`;
 
         whatsappCouponButton.href =
-            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
 
     }
 
@@ -222,6 +231,11 @@ whatsappCouponButton.addEventListener(
         const numeroWhatsApp =
             "50375644467";
 
+        const numeroCupon =
+            coupon?.id
+                ? String(coupon.id).padStart(2, "0")
+                : "";
+
         const nombre =
             coupon?.title || "un cupón";
 
@@ -229,7 +243,9 @@ whatsappCouponButton.addEventListener(
             coupon?.emoji || "❤️";
 
         const mensaje =
-            `Hola 🤭 utilicé el cupón "${nombre}" ${emoji} ❤️`;
+            numeroCupon
+                ? `Hola 🤭 utilicé el CUPÓN ${numeroCupon}: "${nombre}" ${emoji} ❤️`
+                : `Hola 🤭 utilicé un cupón ❤️`;
 
         const url =
             `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
@@ -623,6 +639,20 @@ resetAllButton.addEventListener(
         );
 
         startConfetti();
+
+    });
+
+
+    /* =========================================
+       BOTÓN DIRECTO A CUPONES
+    ========================================= */
+
+    couponsDirectButton.addEventListener("click", () => {
+
+        changeScreen(
+            welcomeScreen,
+            couponsScreen
+        );
 
     });
 

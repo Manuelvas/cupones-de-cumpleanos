@@ -199,6 +199,46 @@ body {
     transform: scale(0.96);
 }
 
+.coupon-shortcut-button {
+    margin-top: 12px;
+
+    padding: 10px 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.92rem;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.coupon-shortcut-button:hover {
+    background: rgba(255, 255, 255, 0.11);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.coupon-shortcut-button:active {
+    transform: scale(0.96);
+}
+
 
 /* =========================================
    PANTALLA CUMPLEAÑOS
@@ -2373,6 +2413,13 @@ body {
     }
 }
 
+/* =========================================
+   OCULTAR MODO DE PRUEBAS - VERSIÓN FINAL
+========================================= */
+
+#devPanel {
+    display: none !important;
+}
 
 
 /* =========================================
