@@ -197,7 +197,7 @@ function showCouponSuccess(coupon) {
             coupon.title || `Cupón ${numeroCupon}`;
 
         const mensaje =
-            `Hola 🤭 utilicé el CUPÓN ${numeroCupon}: "${nombreCupon}" ${coupon.emoji || "❤️"} ❤️`;
+            `Hola 🤭 utilicé un cupón, el cupón es: ${nombreCupon} ${coupon.emoji || "❤️"}`;
 
         whatsappCouponButton.href =
             `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
@@ -244,8 +244,8 @@ whatsappCouponButton.addEventListener(
 
         const mensaje =
             numeroCupon
-                ? `Hola 🤭 utilicé el CUPÓN ${numeroCupon}: "${nombre}" ${emoji} ❤️`
-                : `Hola 🤭 utilicé un cupón ❤️`;
+                ? `Hola 🤭 utilicé un cupón, el cupón es: ${nombre} ${emoji}`
+                : `Hola 🤭 utilicé un cupón, el cupón es: [escribir aquí] ❤️`;
 
         const url =
             `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
